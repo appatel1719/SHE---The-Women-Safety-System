@@ -1,26 +1,21 @@
-<?php
-	$servername="localhost";
-	$username="root";
-	$password="";
-	$db="she";
-	$conn = mysqli_connect($servername,$username,$password,$db);
-			if (!$conn) {
-							die("Connection failed: " . mysqli_connect_error());
-						}
-	if (isset($_POST['submit'])) {
-		$user_id = $_POST['user_id'];
-		$time_stramp = $_POST['time_stramp'];
-		$location = $_POST['location'];
-		$activity = $_POST['activity'];
-		$status = $_POST['status'];
-		$sql = "INSERT INTO `emergency_request`(`user_id`, `time_stramp`, `location`, `activity`, `status`) VALUES ('$user_id','$time_stramp','$location','$activity','$status')";
-		if (mysqli_query($conn,$sql)) {
-				echo "New Record Inserted Sucessfully....";
-			}
-			else {
-				    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-				}
-				mysqli_close($conn);
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Emergency</title>
+	<link rel="stylesheet" type="text/css" href="emergency_style.css">
+</head>
+<body>
+	<!-- <img src="SHE logo.jpeg" alt="logo" height="50px" width="59.78px" style="float: left">
+    <nav style="width: 90%; float: right;">
+        
+        <a href="#dashboard" id="dash" style="width: 60%; font-family: Helvetica, sans-serif, Arial;">Emergency Request</a>
+        <a href="#map" style="width: 5%; font-family: Helvetica;">Map</a>
+        <a href="view_profile.php" style="width: 5%; font-family: Helvetica;">Users</a>
+        <a href="#about" id="abo" style="width: 5%; font-family: Helvetica;">About</a>
+    </nav> -->
+    <?php
+    	include("header.php");
+    ?>
 
-	}
-?>
+</body>
+</html>

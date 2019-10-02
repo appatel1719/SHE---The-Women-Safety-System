@@ -1,45 +1,51 @@
-
-<h3>My Google Maps Demo</h3>
-<!--The div element for the map -->
-<div id="map"></div>
-/* Set the size of the div element that contains the map */
-#map {
-  height: 400px;  /* The height is 400 pixels */
-  width: 100%;  /* The width is the width of the web page */
- }
-<!-- Replace the value of the key parameter with your own API key. -->
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcIi06vla4tyl3tPsHSIz7h1Eg58k9wEs&callback=initMap">
-</script>
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
     <style>
-      /* Set the size of the div element that contains the map */
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
       #map {
-        height: 400px;  /* The height is 400 pixels */
-        width: 100%;  /* The width is the width of the web page */
-       }
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
     </style>
+
   </head>
   <body>
-    <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
     <div id="map"></div>
+    <?php
+    $lat: 28.7041;
+    $lng: 77.1025;
+    ?>
     <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var uluru = {lat: -25.344, lng: 131.036};
-  // The map, centered at Uluru
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-}
+      var map;
+      function initMap() {
+        var lat = "<?php echo $lat ?>";
+        var lng = "<?php echo $lng ?>";
+        //alert(lat);
+        //echo "lng";
+        var delhi = {lat: 18.5204, lng: 73.8567};
+        map = new google.maps.Map(document.getElementById('map'), {
+          
+          zoom: 10,
+          center: delhi
+        });
+
+        var marker = new google.maps.Marker({
+          position: delhi,
+          map:map
+        }); 
+      }
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7SEDrRvB7JPqBcRAQehM6BnH4bkWIF2E&callback=initMap">
-    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKtzd-npgkxS2q_EdWYtTqFxcLyCuZTs0&callback=initMap"
+    async defer></script>
   </body>
 </html>
